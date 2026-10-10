@@ -20,17 +20,16 @@
       "framework": "vite",
       "buildCommand": "pnpm run build",
       "outputDirectory": "dist/public",
-      "installCommand": "pnpm install --frozen-lockfile",
-      "links": [
-        {
-          "type": "service",
-          "service": "api-server",
-          "format": "url",
-          "env": "API_SERVER_URL"
-        }
-      ]
+      "installCommand": "pnpm install --frozen-lockfile"
     }
   },
+  "links": [
+    {
+      "source": "portfolio",
+      "target": "api-server",
+      "env": "API_SERVER_URL"
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
