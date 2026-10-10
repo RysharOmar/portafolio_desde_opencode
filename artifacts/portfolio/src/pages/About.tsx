@@ -86,6 +86,7 @@ export default function About() {
               <a
                 href="/cv.pdf?v=2"
                 download="ryshar_perez_nunez_cv.pdf"
+                target="_blank"
                 className="border-b border-foreground pb-1 font-sans text-base font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 {copy.cv}
