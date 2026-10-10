@@ -1,0 +1,48 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "api-server": {
+      "root": "artifacts/api-server",
+      "framework": "express",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist",
+      "installCommand": "pnpm install --frozen-lockfile"
+    },
+    "mockup-sandbox": {
+      "root": "artifacts/mockup-sandbox",
+      "framework": "vite",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist",
+      "installCommand": "pnpm install --frozen-lockfile"
+    },
+    "portfolio": {
+      "root": "artifacts/portfolio",
+      "framework": "vite",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist/public",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "links": [
+        {
+          "type": "service",
+          "service": "api-server",
+          "format": "url",
+          "env": "API_SERVER_URL"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": { "service": "api-server" }
+    },
+    {
+      "source": "/sandbox/(.*)",
+      "destination": { "service": "mockup-sandbox" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "portfolio" }
+    }
+  ]
+}

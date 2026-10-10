@@ -1,0 +1,63 @@
+Descripción del negocio:
+
+Sitio web de portafolio personal con estructura de múltiples páginas, diseño exclusivo, vanguardista y tecnológico, especializado en automatizaciones con inteligencia artificial. El propietario es un Ingeniero en Ciberseguridad y Desarrollador Web, enfocado en la automatización inteligente de procesos mediante integraciones con bases de datos, CRMs y APIs.
+
+Objetivo: deseo, acción, autoridad, prueba social y escasez sin ser genérico.
+
+Estilo visual, preloader, selector de idioma y modo claro/oscuro: (tema oscuro/claro conmutables, partículas, cursor neón, tipografías modernas, preloader con logo animado y barra de progreso). El cambio de idioma (ES/EN) y el alternador de tema (sol/luna) se ubican en la cabecera fija, visibles en todas las páginas.
+
+Estructura multi-page:
+La navegación se realiza mediante un menú superior o lateral con botones/iconos que llevan a páginas separadas: Home, About, Work, Contact. Cada página es una vista completa con transiciones suaves. No hay scroll único; al hacer clic en un botón se carga la sección correspondiente (puede ser navegación real entre páginas HTML o SPA con enrutamiento interno, según la implementación técnica que prefiera la IA, pero siempre manteniendo la sensación de páginas separadas).
+
+Página Home:
+
+Contiene el Hero con el titular, subtítulo, CTA y los indicadores de escasez.
+
+Fondo con nodos de red reactivos.
+
+Es la página de aterrizaje principal.
+
+No incluye las demás secciones; los botones del menú llevan a ellas.
+
+Página About:
+
+Biografía completa que fusiona ciberseguridad, desarrollo y automatización IA.
+
+Hitos de autoridad, certificaciones, skill tags interactivos.
+
+Botón de descarga de CV en PDF.
+
+Testimonio o métrica como prueba social.
+
+Página Work (Proyectos):
+
+Galería de proyectos presentada en grid o en un carrusel vertical, ya que no hay restricción de scroll horizontal.
+
+Las mismas tarjetas con efecto glass, filtros por tipo de integración (CRM, ERP, APIs, BBDD).
+
+Cada tarjeta expandible o con modal para ver detalles completos.
+
+Página Contact:
+
+Formulario y calendario de reserva, texto persuasivo con escasez, enlaces a LinkedIn.
+
+Diseño en dos columnas en escritorio, apilado en móviles.
+
+Navegación y UX:
+
+Menú fijo (visible siempre) con los enlaces/iconos: Home, About, Work, Contact.
+
+Los botones tienen un efecto hover con el cursor personalizado (resplandor neón).
+
+En móviles, el menú puede ser una barra inferior con iconos o un menú hamburguesa desplegable.
+
+La transición entre páginas se realiza con un efecto de fundido o deslizamiento sutil para mantener la experiencia fluida.
+
+Responsive:
+
+En móviles, el menú inferior tiene los cuatro accesos. Cada página se adapta con las mismas reglas de la versión one-page (tarjetas en columna, partículas simplificadas, calendario apilado, etc.).
+
+Los breakpoints y ajustes por dispositivo se mantienen idénticos.
+
+Copywriting y gatillos: repartidos estratégicamente en cada página: autoridad en About, prueba social y escasez en Home, Work y Contact.
+
