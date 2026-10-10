@@ -84,9 +84,7 @@ export default function About() {
                 {copy.contact}
               </Link>
               <a
-                href="/cv.pdf?v=2"
-                download="ryshar_perez_nunez_cv.pdf"
-                target="_blank"
+                href="/ryshar_perez_nunez_cv.pdf"
                 className="border-b border-foreground pb-1 font-sans text-base font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 {copy.cv}
