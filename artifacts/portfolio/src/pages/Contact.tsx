@@ -85,12 +85,12 @@ export default function Contact() {
                 transition={{ delay: 0.6 }}
               >
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://github.com/RysharOmar" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-block border-b border-foreground pb-1 text-lg font-medium hover:border-primary hover:text-primary transition-colors"
                 >
-                  LinkedIn ↗
+                  GitHub ↗
                 </a>
               </motion.div>
             </div>
