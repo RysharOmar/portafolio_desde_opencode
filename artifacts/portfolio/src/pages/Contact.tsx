@@ -172,7 +172,7 @@ export default function Contact() {
                   
                   <div className="mt-8 text-center">
                     <a 
-                      href="https://calendly.com" 
+                      href="https://calendly.com/rysharpereznunez" 
                       target="_blank" 
                       rel="noreferrer"
                       className="inline-block border-b border-foreground/30 text-muted-foreground pb-1 hover:text-foreground hover:border-foreground transition-colors"
