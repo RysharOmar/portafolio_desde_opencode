@@ -4,6 +4,13 @@ import { useForm } from 'react-hook-form';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PageTransition } from '@/components/PageTransition';
 import { Marquee } from '@/components/Marquee';
+import emailjs from '@emailjs/browser';
+
+// Configuración de EmailJS (tus credenciales)
+const EMAILJS_SERVICE_ID = 'service_vqg6rsk';
+const EMAILJS_TEMPLATE_ID = 'template_zs5ujwz';
+const EMAILJS_USER_ID = 'xi7bZr-8KOKm-bdn-';
+const EMAILJS_TO_EMAIL = 'rysharpereznunez@gmail.com';
 
 // Lista negra de dominios de correo temporal/desechable
 const DISPOSABLE_DOMAINS = [
@@ -70,17 +77,37 @@ export default function Contact() {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     setIsSubmitting(true);
 
-    // Guardar marca de envío en localStorage para anti-reenvío
-    localStorage.setItem('formSubmitted', 'true');
+    try {
+      // Enviar el correo realmente mediante EmailJS a tu Gmail
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          company: data.company || '',
+          message: data.message,
+          to_email: EMAILJS_TO_EMAIL,
+        },
+        EMAILJS_USER_ID
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    // Activar inmediatamente el estado de ya-enviado para mostrar mensaje permanente
-    // y ocultar el formulario en esta misma sesión (sin esperar a recargar la página)
-    setHasPreviouslySubmitted(true);
+      // Guardar marca de envío en localStorage para anti-reenvío
+      localStorage.setItem('formSubmitted', 'true');
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      // Activar inmediatamente el estado de ya-enviado para mostrar mensaje permanente
+      // y ocultar el formulario en esta misma sesión (sin esperar a recargar la página)
+      setHasPreviouslySubmitted(true);
+    } catch (error) {
+      console.error('Error enviando el correo:', error);
+      setIsSubmitting(false);
+      alert(lang === 'ES' ? 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.' : 'Error sending message. Please try again.');
+    }
   };
 
   const perks = [
