@@ -78,7 +78,9 @@ export default function Contact() {
 
     setIsSubmitting(false);
     setIsSubmitted(true);
-    reset();
+    // Activar inmediatamente el estado de ya-enviado para mostrar mensaje permanente
+    // y ocultar el formulario en esta misma sesión (sin esperar a recargar la página)
+    setHasPreviouslySubmitted(true);
   };
 
   const perks = [
