@@ -4,13 +4,13 @@ import { useForm } from 'react-hook-form';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PageTransition } from '@/components/PageTransition';
 import { Marquee } from '@/components/Marquee';
-import emailjs from '@emailjs/browser';
 
 // Configuración de EmailJS (tus credenciales)
 const EMAILJS_SERVICE_ID = 'service_vqg6rsk';
 const EMAILJS_TEMPLATE_ID = 'template_zs5ujwz';
 const EMAILJS_USER_ID = 'xi7bZr-8KOKm-bdn-';
 const EMAILJS_TO_EMAIL = 'rysharpereznunez@gmail.com';
+const EMAILJS_API_URL = 'https://api.emailjs.com/api/v1.0/email/send';
 
 // Lista negra de dominios de correo temporal/desechable
 const DISPOSABLE_DOMAINS = [
@@ -81,19 +81,25 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Enviar el correo realmente mediante EmailJS a tu Gmail
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          company: data.company || '',
-          message: data.message,
-          to_email: EMAILJS_TO_EMAIL,
+      // Enviar el correo realmente mediante EmailJS API (fetch, sin dependencias extra)
+      await fetch(EMAILJS_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        EMAILJS_USER_ID
-      );
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_USER_ID,
+          template_params: {
+            from_name: data.name,
+            from_email: data.email,
+            company: data.company || '',
+            message: data.message,
+            to_email: EMAILJS_TO_EMAIL,
+          },
+        }),
+      });
 
       // Guardar marca de envío en localStorage para anti-reenvío
       localStorage.setItem('formSubmitted', 'true');
